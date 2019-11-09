@@ -13,39 +13,18 @@
 
 //PASTE THIS INTO THE CONSOLE
 //BEGIN
-class Song_With_Arrangements {
-    constructor(song) {
-        this.song = song;
-        this.add_arrangements();
-    }
 
-    add_arrangements() {
-        console.log('fetching ' + this.song.links.self);
-        fetch(this.song.links.self)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json);
-            console.log('fetching ' + json.data.links.arrangements);
-            fetch(json.data.links.arrangements)
-            .then(response => response.json())
-            .then(json => {
-                console.log(json);
-                this.song.arrangements = json.data;
-            })
-        })
-    }
-
-    get json() {
-        return this.song;
-    }
-}
 
 class Console_Export {
     constructor(tags) {
         this.songs = [];
-        let url = this.build_songs_url_from_tags_array(tags);
-        this.get_songs_with_arrangements(url);
- 
+        this.url = this.build_songs_url_from_tags_array(tags);
+    }
+
+    async export() {
+        await this.get_songs(this.url);
+        await this.add_arrangements_to_songs();
+        this.write_to_document();
     }
 
     build_songs_url_from_tags_array(tags) {
@@ -56,30 +35,43 @@ class Console_Export {
         return url;
     }
 
-    add_this_batch_of_songs(song_array) {
-        song_array.forEach(song => {
-            let song_with_arrangements = new Song_With_Arrangements(song);
-            this.songs.push(song_with_arrangements.json);
-        })
-    }
-    
-    get_songs_with_arrangements(url) {
+    async get_songs(url) {
+        var response, json;
         console.log('fetching ' + url);
-        fetch(url)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json);
-            this.add_this_batch_of_songs(json.data);
-            if (typeof(json.links.next) !== 'undefined') {
-                this.get_songs_with_arrangements(json.links.next, songs_object); //Oooo, recursive!
-            }
+        response = await fetch(url);
+        json = await response.json();
+        console.log(json);
+        json.data.forEach(song => {
+            this.songs.push(song);
         })
+        if (typeof(json.links.next) !== 'undefined') {
+            await this.get_songs(json.links.next, songs_object); //Oooo, recursive!
+        }
     }    
+
+    async add_arrangements_to_songs() {
+        for (let i = 0; i < this.songs.length; i++) {
+            await this.add_arrangements_to_song(i);
+        }
+    }
 
     write_to_document() {
         console.log(this.songs);
         document.write('<pre>' + JSON.stringify(this.songs, null, 4) + '</pre>');
         console.log("Go back to the page.  Your Export JSON is there.");
+    }
+    
+    async add_arrangements_to_song(i) {
+        var response, json;
+        console.log('fetching ' + this.songs[i].links.self);
+        response = await fetch(this.songs[i].links.self);
+        json = await response.json();
+        console.log(json);
+        console.log('fetching ' + json.data.links.arrangements);
+        response = await fetch(json.data.links.arrangements);
+        json = await response.json();
+        console.log(json);
+        this.songs[i].arrangements = json.data;
     }
 }
 //END
@@ -89,8 +81,5 @@ class Console_Export {
 //PASTE THIS INTO THE CONSOLE
 tags = ['6862901']; 
 songs = new Console_Export(tags);
+songs.export();
 //Edit the array of tag ids to your liking and then PRESS ENTER.
-
-//wait and then run this
-songs.write_to_document();
-//Your results are back on the page where you entered the console by chooseing inspect
