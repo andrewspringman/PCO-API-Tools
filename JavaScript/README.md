@@ -2,7 +2,7 @@
 Only the Console Export, so far.  Do not despise the day of small beginnings.
 
 ## Console Export JS
-This script is a quick and dirty way to export JSON for all songs matching a tag.  You sign into you account, browse to api.planningcenteronline.com, open the console, paste it in and run it.  It replaces the page with the JSON document.  It inserts all of the arrangements into the song structure.
+This script is a quick and dirty way to export JSON for all songs matching a tag.  You sign into your account, browse to api.planningcenteronline.com, open the console, paste it in and run it.  It replaces the page with the JSON document.  It inserts all of the arrangements into the song structure.
 
 ### Goals
 - Strip out the fields that don't work for import.

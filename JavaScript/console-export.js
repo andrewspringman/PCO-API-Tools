@@ -7,7 +7,7 @@
 
 // This script is a quick and dirty way to export JSON for all songs matching a tag and their arrangements.  
 
-// You sign into you account
+// You sign into your account
 // Browse to api.planningcenteronline.com
 // Open the console by right clicking, choosing inspect, and then clicking on the console tab
 
