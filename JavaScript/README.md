@@ -1,7 +1,10 @@
-# Console Export JS
+# JavaScript PCO API Library
+Only the Console Export, so far.  Do not despise the day of small beginnings.
+
+## Console Export JS
 This script is a quick and dirty way to export JSON for all songs matching a tag.  You sign into you account, browse to api.planningcenteronline.com, open the console, paste it in and run it.  It replaces the page with the JSON document.  It inserts all of the arrangements into the song structure.
 
-## Goals
+### Goals
 - Create an importer to go with the above exporter.
 - Create a single tool that imports from one account and imports to another account using personal access tokens for both account.
 
