@@ -2,7 +2,7 @@
 A growing collection of Planning Center API Utilities.
 
 ## Current State
-I just created the repo. (Do not despise the day of small beginnings.
+I just created the repo. (Do not despise the day of small beginnings).
 
 ## Goals
 - Copy experimental JavaScript file in to this from an old machine.  That script is a quick and dirty way to export JSON for all songs matching a tag.  You sign into you account, open the console, paste it in and run it.  It replaces the page with the JSON document.  It inserts the default arrangement into the song structure.
