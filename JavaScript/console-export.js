@@ -45,7 +45,7 @@ class Console_Export {
             this.songs.push(song);
         })
         if (typeof(json.links.next) !== 'undefined') {
-            await this.get_songs(json.links.next, songs_object); //Oooo, recursive!
+            await this.get_songs(json.links.next); //Oooo, recursive!
         }
     }    
 
@@ -60,7 +60,7 @@ class Console_Export {
         document.write('<pre>' + JSON.stringify(this.songs, null, 4) + '</pre>');
         console.log("Go back to the page.  Your Export JSON is there.");
     }
-    
+
     async add_arrangements_to_song(i) {
         var response, json;
         console.log('fetching ' + this.songs[i].links.self);
