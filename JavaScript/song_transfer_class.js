@@ -1,20 +1,16 @@
-/////////////////////////
-// Console Transfer JS //
-/////////////////////////
+////////////////////////////
+// Song Transfer Class JS //
+////////////////////////////
 
 // (C) Andrew Springman 2019
 // Released under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 
-// This script is a quick and dirty way to export JSON for all songs matching a tag and their arrangements
-// and then import them into another account.
-
-// You sign into your account
-// Browse to api.planningcenteronline.com
-// Open the console by right clicking, choosing inspect, and then clicking on the console tab
+// This script is a quick and dirty way to transfer JSON for all songs matching a tag.  
+// On any page open the console, paste it in, make the edits as instructed in the comments, and press ENTER to run it.
 
 //PASTE THIS INTO THE CONSOLE
 //BEGIN
-class song_transfer_class {
+class Song_Transfer_Class {
     constructor(tags, creds) {
         this.tags = tags;
         this.creds = creds;
@@ -285,6 +281,6 @@ creds = {
     }
 };
 tags = ['6862901']; 
-song_transfer_object = new song_transfer_class(tags,creds);
+song_transfer_object = new Song_Transfer_Class(tags,creds);
 song_transfer_object.transfer_songs();
 //Edit the credsx object and the array of tag ids to your liking and then PRESS ENTER.
