@@ -2,7 +2,7 @@
 Only the Song Transfer Class, so far.  Do not despise the day of small beginnings.
 
 ## Song Transfer Class JS
-This script is a quick and dirty way to transfer JSON for all songs matching a tag.  On any page open the console, paste it in, make the edits as instructed in the comments, and press ENTER to run it.
+    This script is a quick and dirty way to transfer JSON for all songs matching a tag.  On any page open the console, paste it in, make the edits as instructed in the comments, and press ENTER to run it.
 
 ### Goals
 - Make an HTML version of Song Transfer Class JS with a form for the creds and tags
