@@ -2,17 +2,12 @@
 A growing collection of Planning Center API Utilities.
 
 ## Latest changes
-- Added JavaScript console exporter.
+- Added JavaScript Song Transfer Class.
 
-    This script is a quick and dirty way to export JSON for all songs matching a tag.  You sign into your account, browse to api.planningcenteronline.com, open the console, paste it in and run it.  It replaces the page with the JSON document.  It inserts all of the arrangements into the song structure.
+This script is a quick and dirty way to transfer JSON for all songs matching a tag.  On any page open the console, paste it in, make the edits as instructed in the comments, and press ENTER to run it.
 
 ## Goals
-- Strip out the fields that don't work for import.
-- Create an importer to go with the above exporter.
-- Create a single tool that imports from one account and imports to another account using personal access tokens for both account.
-
-    [Stack Overflow discussion on how to do this.](https://stackoverflow.com/questions/43842793/basic-authentication-with-fetch)
-
+- Make an HTML version of Song Transfer Class JS with a form for the creds and tags
 - upgrade to OAuth
 - Create a library for JavaScript
 - Create a library for PHP
